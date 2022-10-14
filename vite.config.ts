@@ -8,7 +8,7 @@ import svgr from 'vite-plugin-svgr';
 import { resolve } from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import Unocss from 'unocss/vite';
-
+import { qrcode } from 'vite-plugin-qrcode';
 import legacy from '@vitejs/plugin-legacy';
 import react from '@vitejs/plugin-react';
 
@@ -66,6 +66,9 @@ export default defineConfig((config: ConfigEnv) => {
 					'react-vendor': ['react', 'react-dom', 'react-router-dom'],
 				},
 			}),
+
+			//Add QR code when run
+			qrcode()
 		],
 		build: {
 			target: 'es2018',

@@ -45,12 +45,12 @@
 		"reset:git": "rimraf .git && git init && git add . && git commit -m \"init commit\"",
 		"reset:vite": "rimraf ./.vite-cache ./dist",
 		"reset:file": "node ./clean.js",
-		"reset": "npm run reset:vite && npm run reset:file && npm run reset:git",
-		"dev": "npm run reset:vite && cross-env DEBUG=vite:plugin:mkcert HTTPS=true vite",
-		"dev:http": "npm run reset:vite && vite",
-		"build": "npm run reset:vite && tsc && vite build",
-		"preview": "npm run build && vite preview",
-		"analyze": "npm run reset:vite && cross-env ANALYZE=true npm run build",
+		"reset": "yarn reset:vite && yarn reset:file && yarn reset:git",
+		"dev": "yarn reset:vite && cross-env DEBUG=vite:plugin:mkcert HTTPS=true vite",
+		"dev:http": "yarn reset:vite && vite --host",
+		"build": "yarn reset:vite && tsc && vite build",
+		"preview": "yarn build && vite preview",
+		"analyze": "yarn reset:vite && cross-env ANALYZE=true yarn build",
 		"mock:server": "json-server --watch ./mock/index.json --config ./mock/config.json",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
@@ -118,6 +118,7 @@
 		"vite-plugin-chunk-split": "^0.2.7",
 		"vite-plugin-imagemin": "^0.6.1",
 		"vite-plugin-mkcert": "^1.9.0",
+		"vite-plugin-qrcode": "^0.2.0",
 		"vite-plugin-svgr": "^2.2.1"
 	},
 	"browserslist": {
